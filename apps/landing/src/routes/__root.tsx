@@ -1,6 +1,7 @@
 import { createRootRouteWithContext, Outlet, Link } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import type { QueryClient } from '@tanstack/react-query'
+import { ThemeToggle } from '../components/ThemeToggle'
 
 interface RouterContext {
   queryClient: QueryClient
@@ -18,7 +19,7 @@ function RootLayout() {
           <Link to="/" className="text-xl font-bold">
             Portfolio
           </Link>
-          <div className="flex gap-6">
+          <div className="flex items-center gap-6">
             <Link
               to="/"
               className="text-muted-foreground hover:text-foreground transition-colors [&.active]:text-foreground"
@@ -31,6 +32,7 @@ function RootLayout() {
             >
               Contact
             </Link>
+            <ThemeToggle />
           </div>
         </nav>
       </header>
