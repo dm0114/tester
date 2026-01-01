@@ -33,6 +33,11 @@ export type ApiErrorCode =
   | 'LEAVE_FETCH_FAILED'
   | 'LEAVE_CREATE_FAILED'
   | 'LEAVE_INSUFFICIENT_BALANCE'
+  // Contact
+  | 'CONTACT_FETCH_FAILED'
+  | 'CONTACT_CREATE_FAILED'
+  | 'CONTACT_UPDATE_FAILED'
+  | 'CONTACT_NOT_FOUND'
 
 export interface ApiErrorOptions {
   code: ApiErrorCode
@@ -111,6 +116,11 @@ function getDefaultMessage(code: ApiErrorCode): string {
     LEAVE_FETCH_FAILED: '휴가 정보를 불러오는데 실패했습니다',
     LEAVE_CREATE_FAILED: '휴가 신청에 실패했습니다',
     LEAVE_INSUFFICIENT_BALANCE: '휴가 잔여일수가 부족합니다',
+    // Contact
+    CONTACT_FETCH_FAILED: '문의 정보를 불러오는데 실패했습니다',
+    CONTACT_CREATE_FAILED: '문의 등록에 실패했습니다',
+    CONTACT_UPDATE_FAILED: '문의 상태 변경에 실패했습니다',
+    CONTACT_NOT_FOUND: '문의를 찾을 수 없습니다',
   }
   return messages[code]
 }

@@ -113,9 +113,11 @@ function LoginPage() {
         </div>
       </Card>
 
-      <p className="text-center text-blue-100 text-sm mt-6">
-        테스트: employee@company.com / password
-      </p>
+      {import.meta.env.DEV && (
+        <p className="text-center text-blue-100 text-sm mt-6">
+          테스트: employee@company.com / password
+        </p>
+      )}
     </div>
   )
 }

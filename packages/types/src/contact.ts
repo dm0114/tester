@@ -1,19 +1,17 @@
 /**
  * Contact - 포트폴리오 문의 타입
  */
+import type { BaseEntity } from './common'
 
 export type ContactStatus = 'PENDING' | 'READ' | 'REPLIED'
 
-export interface Contact {
-  id: string
+export interface Contact extends BaseEntity {
   name: string
   email: string
   subject: string
   message: string
   status: ContactStatus
   replied_at: string | null
-  created_at: string
-  updated_at: string
 }
 
 export interface ContactInput {

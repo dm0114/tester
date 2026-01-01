@@ -33,10 +33,19 @@ function ContactPage() {
     },
     onSubmit: async ({ value }) => {
       const result = contactSchema.safeParse(value)
-      if (result.success) {
-        await createContact.mutateAsync(result.data)
-        setSubmitted(true)
+      if (!result.success) {
+        // Zod 에러를 각 필드에 설정
+        for (const error of result.error.errors) {
+          const fieldName = error.path[0] as keyof typeof value
+          form.setFieldMeta(fieldName, (prev) => ({
+            ...prev,
+            errors: [error.message],
+          }))
+        }
+        return
       }
+      await createContact.mutateAsync(result.data)
+      setSubmitted(true)
     },
   })
 

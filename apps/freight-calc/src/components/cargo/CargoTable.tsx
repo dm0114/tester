@@ -1,5 +1,3 @@
-
-
 import { Plus, Trash2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -26,6 +24,14 @@ import {
 import type { QuoteFormType } from '@/models/quote/useQuoteForm'
 import type { CargoItem } from '@/schemas/quote-form.schema'
 import type { CargoSummary, ContainerType, TransportMode } from '@/types/cargo'
+
+/**
+ * 숫자 입력값을 안전하게 파싱 (NaN 방지)
+ */
+function parseNumber(value: string, fallback = 0): number {
+  const parsed = Number(value)
+  return Number.isNaN(parsed) ? fallback : parsed
+}
 
 interface CalculatedRow {
   index: number
@@ -157,7 +163,7 @@ export function CargoTable({
                               className="h-8"
                               value={field.state.value}
                               onChange={(e) =>
-                                field.handleChange(Number(e.target.value))
+                                field.handleChange(parseNumber(e.target.value))
                               }
                               onBlur={field.handleBlur}
                             />
@@ -177,7 +183,7 @@ export function CargoTable({
                               className="h-8"
                               value={field.state.value}
                               onChange={(e) =>
-                                field.handleChange(Number(e.target.value))
+                                field.handleChange(parseNumber(e.target.value))
                               }
                               onBlur={field.handleBlur}
                             />
@@ -193,7 +199,7 @@ export function CargoTable({
                               className="h-8"
                               value={field.state.value}
                               onChange={(e) =>
-                                field.handleChange(Number(e.target.value))
+                                field.handleChange(parseNumber(e.target.value))
                               }
                               onBlur={field.handleBlur}
                             />
@@ -209,7 +215,7 @@ export function CargoTable({
                               className="h-8"
                               value={field.state.value}
                               onChange={(e) =>
-                                field.handleChange(Number(e.target.value))
+                                field.handleChange(parseNumber(e.target.value))
                               }
                               onBlur={field.handleBlur}
                             />
@@ -225,7 +231,7 @@ export function CargoTable({
                               className="h-8"
                               value={field.state.value}
                               onChange={(e) =>
-                                field.handleChange(Number(e.target.value))
+                                field.handleChange(parseNumber(e.target.value))
                               }
                               onBlur={field.handleBlur}
                             />
@@ -246,7 +252,7 @@ export function CargoTable({
                           className="h-8"
                           value={field.state.value}
                           onChange={(e) =>
-                            field.handleChange(Number(e.target.value))
+                            field.handleChange(parseNumber(e.target.value))
                           }
                           onBlur={field.handleBlur}
                         />

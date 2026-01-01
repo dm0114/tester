@@ -91,9 +91,11 @@ function LoginPage() {
           </Button>
         </form>
 
-        <div className="mt-6 text-center text-sm text-gray-500">
-          <p>테스트 계정: admin@company.com / password</p>
-        </div>
+        {import.meta.env.DEV && (
+          <div className="mt-6 text-center text-sm text-gray-500">
+            <p>테스트 계정: admin@company.com / password</p>
+          </div>
+        )}
       </Card>
     </div>
   )
