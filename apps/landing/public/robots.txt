@@ -1,0 +1,22 @@
+# Robots.txt for Portfolio Site
+# https://portfolio-landing.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://portfolio-landing.vercel.app/sitemap.xml
+
+# Disallow admin and API routes (if any)
+Disallow: /api/
+Disallow: /_*
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yeti
+Allow: /
