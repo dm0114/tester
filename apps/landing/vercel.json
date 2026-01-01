@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd ../.. && pnpm turbo build --filter=@portfolio/landing",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}

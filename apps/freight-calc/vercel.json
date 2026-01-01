@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd ../.. && pnpm turbo build --filter=@portfolio/freight-calc",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}

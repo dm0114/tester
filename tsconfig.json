@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@portfolio/ui": ["packages/ui/src"],
+      "@portfolio/ui/*": ["packages/ui/src/*"],
+      "@portfolio/api": ["packages/api/src"],
+      "@portfolio/api/*": ["packages/api/src/*"],
+      "@portfolio/types": ["packages/types/src"],
+      "@portfolio/types/*": ["packages/types/src/*"],
+      "@portfolio/config": ["packages/config"],
+      "@portfolio/config/*": ["packages/config/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

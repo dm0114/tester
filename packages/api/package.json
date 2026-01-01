@@ -1,0 +1,42 @@
+{
+  "name": "@portfolio/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./domains/*": "./src/domains/*/index.ts",
+    "./shared": "./src/shared/index.ts",
+    "./shared/*": "./src/shared/*/index.ts",
+    "./client": "./src/shared/client/index.ts",
+    "./models/*": "./src/models/*/index.ts",
+    "./services/*": "./src/services/*.ts",
+    "./schemas/*": "./src/schemas/*.ts"
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
+    "@tanstack/react-query": "^5.90.0",
+    "ts-pattern": "^5.9.0",
+    "zod": "^3.25.0"
+  },
+  "peerDependencies": {
+    "@portfolio/types": "workspace:*",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.1",
+    "@types/react": "^19.0.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "@vitest/coverage-v8": "^4.0.16",
+    "happy-dom": "^20.0.11",
+    "typescript": "^5.8.0",
+    "vitest": "^4.0.16"
+  }
+}
