@@ -8,6 +8,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@port
 import { useCreateContact } from '@portfolio/api/domains/contact'
 import { useState } from 'react'
 import { Mail, MessageSquare, Send } from 'lucide-react'
+import { SEO, getContactPageStructuredData, getBreadcrumbStructuredData } from '@/components/seo'
 
 export const Route = createFileRoute('/contact')({
   component: ContactPage,
@@ -19,6 +20,17 @@ const contactSchema = z.object({
   subject: z.string().min(5, '제목은 5자 이상이어야 합니다'),
   message: z.string().min(20, '메시지는 20자 이상이어야 합니다'),
 })
+
+const contactStructuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    getContactPageStructuredData(),
+    getBreadcrumbStructuredData([
+      { name: '홈', path: '/' },
+      { name: '문의하기', path: '/contact' },
+    ]),
+  ],
+}
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
@@ -49,9 +61,19 @@ function ContactPage() {
     },
   })
 
+  const seoComponent = (
+    <SEO
+      title="문의하기"
+      description="프로젝트 문의 및 협업 제안을 남겨주세요. 웹 애플리케이션 개발, 관리자 시스템, API 구축 등 다양한 프로젝트를 진행합니다."
+      canonical="/contact"
+      structuredData={contactStructuredData}
+    />
+  )
+
   if (submitted) {
     return (
       <div className="container mx-auto px-4 py-12 max-w-lg">
+        {seoComponent}
         <Card className="text-center">
           <CardContent className="pt-6">
             <div className="mb-4">
@@ -69,6 +91,7 @@ function ContactPage() {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-lg">
+      {seoComponent}
       <Card>
         <CardHeader>
           <div className="flex items-center gap-3 mb-2">

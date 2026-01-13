@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { Button } from '@portfolio/ui/components/button'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@portfolio/ui/components/card'
 import { ExternalLink, Code, Database, Layout } from 'lucide-react'
+import { SEO, getProfilePageStructuredData, getWebsiteStructuredData } from '@/components/seo'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -33,9 +34,20 @@ const skills = [
   'Node.js',
 ]
 
+const homeStructuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [getWebsiteStructuredData(), getProfilePageStructuredData()],
+}
+
 function HomePage() {
   return (
     <div className="container mx-auto px-4 py-12">
+      <SEO
+        title="Full-Stack Developer"
+        description="React, TypeScript, Supabase를 활용한 모던 웹 애플리케이션 개발. 외주 및 프리랜서 프로젝트를 진행합니다."
+        canonical="/"
+        structuredData={homeStructuredData}
+      />
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="text-4xl font-bold mb-4">Full-Stack Developer</h1>
